@@ -1,0 +1,15 @@
+h1{
+    text-align: center;
+}
+
+#taskCreator, #taskPlace{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+
+#taskCreator *{
+    margin: 20px;
+    height: 30px;
+}
