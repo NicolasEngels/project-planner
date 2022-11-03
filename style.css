@@ -1,3 +1,31 @@
+/* green dark very : #344e41
+green dark : #3a5a40
+green : #588157
+green light : #a3b18a
+green light very : #dad7cd */
+
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #3a5a40;
+    color: #dad7cd;
+}
+
+button, input, select{
+    border-radius: 5px;
+    border: solid 1.5px #344e41;
+    background-color: #dad7cd;
+}
+
+button, select{
+    cursor: pointer;
+}
+
+#sortandfilter{
+    display: flex;
+    justify-content: space-around;
+}
+
 h1{
     text-align: center;
 }
@@ -7,6 +35,10 @@ h1{
     flex-direction: column;
     width: 50%;
     margin: auto;
+}
+
+#tasksPlace{
+    margin-top: 30px;
 }
 
 #taskCreator *{
@@ -26,4 +58,14 @@ h1{
 #divi{
     display: flex;
     justify-content: space-between;
+}
+
+
+
+.task{
+    border: solid 2px #dad7cd;
+    border-radius: 5px;
+    padding: 15px;
+    width: 85%;
+    margin: 15px;
 }

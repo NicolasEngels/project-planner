@@ -41,11 +41,14 @@ const sorting = () => {
 
             const taskMode = document.createElement("p");
             taskMode.innerHTML = tasks[i].modeStocked;
-            newTask.classList.add(document.getElementById("toggle-mode").value.toString());
+            newTask.classList.add(tasks[i].modeStocked.toString());
             newTask.appendChild(taskMode);
 
 
             document.getElementById("tasklist").appendChild(newTask);
+
+
+            filtering();
         }
     }else{
         tasks.sort((a, b) => a.timeRemainingStocked - b.timeRemainingStocked);
@@ -73,11 +76,14 @@ const sorting = () => {
 
             const taskMode = document.createElement("p");
             taskMode.innerHTML = tasks[i].modeStocked;
-            newTask.classList.add(document.getElementById("toggle-mode").value.toString());
+            newTask.classList.add(tasks[i].modeStocked.toString());
             newTask.appendChild(taskMode);
 
 
             document.getElementById("tasklist").appendChild(newTask); 
+
+
+            filtering();
         }
     }
 }
@@ -99,8 +105,9 @@ button.addEventListener('click', () => {
         modeStocked : mode
     };tasks.push(stocked);
 
-    filtering();
+
     sorting();
+    
 });
 
 const sort = document.getElementById("sort");
