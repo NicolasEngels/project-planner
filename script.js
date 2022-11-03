@@ -1,5 +1,7 @@
 const button = document.getElementById("create");
 
+let tasks = [];
+
 const filtering = () => {
     const taskList = document.querySelectorAll(".task");
     for (const task of taskList){
@@ -13,38 +15,92 @@ const filtering = () => {
 
 const sorting = () => {
     if(sort.value === 'name'){
-        console.log('namo');
+        tasks.sort((a, b) => a.titleStocked.localeCompare(b.titleStocked));
+
+        document.getElementById("tasklist").innerHTML=""
+
+        for (i in tasks){
+
+            const newTask = document.createElement("div");
+            newTask.classList.add('task');
+
+            const taskTitle = document.createElement("h3");
+            taskTitle.innerHTML = tasks[i].titleStocked;
+            document.getElementById("title").value='';
+            newTask.appendChild(taskTitle);
+
+            const taskDescription = document.createElement("p");
+            taskDescription.innerHTML = tasks[i].descrStocked;
+            document.getElementById("description").value='';
+            newTask.appendChild(taskDescription);
+
+            const taskDeadline = document.createElement("p");
+            taskDeadline.innerHTML = `in ` + tasks[i].timeRemainingStocked + ` days`;
+            document.getElementById("date").value='';
+            newTask.appendChild(taskDeadline);
+
+            const taskMode = document.createElement("p");
+            taskMode.innerHTML = tasks[i].modeStocked;
+            newTask.classList.add(document.getElementById("toggle-mode").value.toString());
+            newTask.appendChild(taskMode);
+
+
+            document.getElementById("tasklist").appendChild(newTask);
+        }
     }else{
-        console.log('dato');
+        tasks.sort((a, b) => a.timeRemainingStocked - b.timeRemainingStocked);
+
+        document.getElementById("tasklist").innerHTML=""
+
+        for (i in tasks){
+            const newTask = document.createElement("div");
+            newTask.classList.add('task');
+
+            const taskTitle = document.createElement("h3");
+            taskTitle.innerHTML = tasks[i].titleStocked;
+            document.getElementById("title").value='';
+            newTask.appendChild(taskTitle);
+
+            const taskDescription = document.createElement("p");
+            taskDescription.innerHTML = tasks[i].descrStocked;
+            document.getElementById("description").value='';
+            newTask.appendChild(taskDescription);
+
+            const taskDeadline = document.createElement("p");
+            taskDeadline.innerHTML = `in ` + tasks[i].timeRemainingStocked + ` days`;
+            document.getElementById("date").value='';
+            newTask.appendChild(taskDeadline);
+
+            const taskMode = document.createElement("p");
+            taskMode.innerHTML = tasks[i].modeStocked;
+            newTask.classList.add(document.getElementById("toggle-mode").value.toString());
+            newTask.appendChild(taskMode);
+
+
+            document.getElementById("tasklist").appendChild(newTask); 
+        }
     }
 }
 
+
 button.addEventListener('click', () => {
 
-    const newTask = document.createElement("div");
-    newTask.classList.add('task');
-
-    const taskTitle = document.createElement("h3");
-    taskTitle.innerHTML = document.getElementById("title").value;
-    newTask.appendChild(taskTitle);
-
-    const taskDescription = document.createElement("p");
-    taskDescription.innerHTML = document.getElementById("description").value;
-    newTask.appendChild(taskDescription);
-
-    const deadlineTime = new Date(document.getElementById("date").value)
+    const title = document.getElementById("title").value;
+    const descr = document.getElementById("description").value;
+    const mode = document.getElementById("toggle-mode").value;
+    const deadlineTime = new Date(document.getElementById("date").value);
     const now = new Date();
-    const taskDeadline = document.createElement("p");
-    taskDeadline.innerHTML = `in ` + Math.floor((deadlineTime.getTime() - now.getTime()) / (1000 * 60 * 60 * 24))+1 + ` days`;
-    newTask.appendChild(taskDeadline);
+    const timeRemaining = Math.floor((deadlineTime.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)+1);
+ 
+    let stocked = {
+        titleStocked : title,
+        descrStocked : descr,
+        timeRemainingStocked : timeRemaining,
+        modeStocked : mode
+    };tasks.push(stocked);
 
-    const taskMode = document.createElement("p");
-    taskMode.innerHTML = document.getElementById("toggle-mode").value;
-    newTask.classList.add(document.getElementById("toggle-mode").value.toString());
-    newTask.appendChild(taskMode);
-
-    document.getElementById("taskPlace").appendChild(newTask);
     filtering();
+    sorting();
 });
 
 const sort = document.getElementById("sort");
@@ -57,12 +113,4 @@ filter.addEventListener('change', () => {
     filtering();
 });
 
-
-
-const taskList = document.querySelectorAll(".task");
-const taskNameList = [];
-for (const task of taskList){
-    taskNameList.push(task.children[0].textContent);
-}
-console.log(taskNameList)
-console.log(taskNameList.sort());
+sorting();

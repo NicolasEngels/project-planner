@@ -2,7 +2,7 @@ h1{
     text-align: center;
 }
 
-#taskCreator, #taskPlace{
+#taskCreator, #tasksPlace{
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -12,4 +12,18 @@ h1{
 #taskCreator *{
     margin: 20px;
     height: 30px;
+}
+
+#date, #toggle-mode{
+    width: 48%;
+    margin: auto 0;
+}
+
+#toggle-mode{
+    height: 34px;
+}
+
+#divi{
+    display: flex;
+    justify-content: space-between;
 }

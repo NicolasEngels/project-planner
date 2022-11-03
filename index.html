@@ -13,92 +13,97 @@
         <div id="taskCreator">
           <input type="text" id="title" placeholder="Enter name of the task">
           <input type="text" id="description" placeholder="Enter description of the task">
-          <input type="date" id="date">
-          <select id="toggle-mode">
-            <option value="todo" selected>to do</option>
-            <option value="doing">doing</option>
-            <option value="done">done</option>
-          </select>
+          <div id="divi">
+            <input type="date" id="date">
+            <select id="toggle-mode">
+              <option value="todo" selected>to do</option>
+              <option value="doing">doing</option>
+              <option value="done">done</option>
+            </select>
+          </div>
           <button id="create">create task</button>
         </div>
 
-        <div id="taskPlace">
+        <div id="tasksPlace">
           <h2>task list :</h2>
 
           <div>
             <label>sort</label>
             <select  id="sort">
               <option value="date" selected>date</option>
-              <option value="name">name</option>
+              <option value="name" >name</option>
             </select>
 
             <label>filter</label>
             <select id="filter">
               <option value="task" selected>all</option>
-              <option value="todo" selected>to do</option>
+              <option value="todo" >to do</option>
               <option value="doing">doing</option>
               <option value="done">done</option>
             </select>
           </div>
 
-          <div class="task todo">
-            <h3>envol 1</h3>
+          <div id="tasklist">
 
-            <p>desc 1</p>
+            <!-- <div class="task todo">
+              <h3>envol 1</h3>
 
-            <p>date 1</p>
+              <p>desc 1</p>
 
-            <p>mode 1</p>
-          </div>
+              <p>date 1</p>
 
-          <div class="task doing">
-            <h3>fentyu 2</h3>
+              <p>mode 1</p>
+            </div>
 
-            <p>desc 2</p>
+            <div class="task doing">
+              <h3>fentyu 2</h3>
 
-            <p>date 2</p>
+              <p>desc 2</p>
 
-            <p>mode 2</p>
-          </div>
+              <p>date 2</p>
 
-          <div class="task done">
-            <h3>arbore 3</h3>
+              <p>mode 2</p>
+            </div>
 
-            <p>desc 3</p>
+            <div class="task done">
+              <h3>arbore 3</h3>
 
-            <p>date 3</p>
+              <p>desc 3</p>
 
-            <p>mode 3</p>
-          </div>
+              <p>date 3</p>
 
-          <div class="task doing">
-            <h3>debio 4</h3>
+              <p>mode 3</p>
+            </div>
 
-            <p>desc 4</p>
+            <div class="task doing">
+              <h3>debio 4</h3>
 
-            <p>date 4</p>
+              <p>desc 4</p>
 
-            <p>mode 4</p>
-          </div>
+              <p>date 4</p>
 
-          <div class="task done">
-            <h3>crenouille 5</h3>
+              <p>mode 4</p>
+            </div>
 
-            <p>desc 5</p>
+            <div class="task done">
+              <h3>crenouille 5</h3>
 
-            <p>date 5</p>
+              <p>desc 5</p>
 
-            <p>mode 5</p>
-          </div>
+              <p>date 5</p>
 
-          <div class="task todo">
-            <h3>barbare 6</h3>
+              <p>mode 5</p>
+            </div>
 
-            <p>desc 6</p>
+            <div class="task todo">
+              <h3>barbare 6</h3>
 
-            <p>date 6</p>
+              <p>desc 6</p>
 
-            <p>mode 6</p>
+              <p>date 6</p>
+
+              <p>mode 6</p>
+            </div> -->
           </div>
         </div>
         <script src="./script.js"></script>
