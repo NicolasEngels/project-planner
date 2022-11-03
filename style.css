@@ -15,6 +15,7 @@ button, input, select{
     border-radius: 5px;
     border: solid 1.5px #344e41;
     background-color: #dad7cd;
+    color: #344e41;
 }
 
 button, select{
